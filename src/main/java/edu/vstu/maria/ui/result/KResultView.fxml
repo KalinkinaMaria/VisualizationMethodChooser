@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.vstu.maria.ui.result.KResultController">
+    <GridPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <children>
+            <TableView fx:id="visualizationMethodsTable" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="6">
+                <GridPane.margin>
+                    <Insets>
+                        <right>5</right>
+                    </Insets>
+                </GridPane.margin>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn editable="false" text="Название">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn editable="false" text="Мера близости">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="measureCloseness" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label text="Рекомендации" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="0">
+                <GridPane.margin>
+                    <Insets>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+            </Label>
+            <TableView fx:id="recomendationsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets>
+                        <top>5</top>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn editable="false" text="Название переменной">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="variableName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn editable="false" text="Визуальный атрибут">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="visualAttribute" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label text="Инструменты" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets>
+                        <top>10</top>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+            </Label>
+            <TableView fx:id="toolsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets>
+                        <top>5</top>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn editable="false" text="Название">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn editable="false" text="Ссылка">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="url" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn editable="false" text="Цена">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="price" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label text="Похожие методы" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets>
+                        <top>10</top>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+            </Label>
+            <TableView fx:id="similarMethodsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="5">
+                <GridPane.margin>
+                    <Insets>
+                        <top>5</top>
+                        <left>5</left>
+                    </Insets>
+                </GridPane.margin>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn editable="false" text="Название">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </children>
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+</AnchorPane>
