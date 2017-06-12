@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import edu.vstu.maria.ui.model.CheckBoxCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxCellFactory?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.vstu.maria.ui.main.KMainController">
+    <minHeight>500.0</minHeight>
+    <minWidth>750.0</minWidth>
+    <VBox>
+        <AnchorPane.topAnchor>0.0</AnchorPane.topAnchor>
+        <AnchorPane.rightAnchor>0.0</AnchorPane.rightAnchor>
+        <AnchorPane.bottomAnchor>0.0</AnchorPane.bottomAnchor>
+        <AnchorPane.leftAnchor>0.0</AnchorPane.leftAnchor>
+        <MenuBar>
+            <Menu text="Файл">
+                <MenuItem fx:id="newMenuItem" onAction="#handle" text="Создать" />
+                <MenuItem fx:id="openMenuItem" onAction="#handle" text="Открыть" />
+                <MenuItem fx:id="exitMenuItem" onAction="#handle" text="Выход" />
+            </Menu>
+            <Menu text="Добавит">
+                <MenuItem fx:id="caseMenuItem" onAction="#handle" text="Прецедент" />
+                <MenuItem fx:id="visualizationMethodMenuItem" onAction="#handle" text="Метод визуализации" />
+                <MenuItem fx:id="purposeMenuItem" onAction="#handle" text="Назначение" />
+            </Menu>
+            <Menu text="Помощь">
+                <MenuItem fx:id="aboutMenuItem" onAction="#handle" text="О программе" />
+            </Menu>
+        </MenuBar>
+        <HBox VBox.vgrow="ALWAYS">
+            <VBox HBox.hgrow="ALWAYS">
+                <Label text="Схема данных" VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets>
+                            <top>5</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="dataSchemeTableView" VBox.vgrow="ALWAYS">
+                    <prefWidth>550.0</prefWidth>
+                    <minWidth>550.0</minWidth>
+                    <VBox.margin>
+                        <Insets>
+                            <top>0</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <columns>
+                        <TableColumn text="Визуализировать">
+                            <cellFactory>
+                                <CheckBoxCellFactory />
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn text="Название">
+                            <cellFactory>
+                                <PropertyValueFactory />
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn text="Тип данных">
+                            <cellFactory>
+                                <ComboBoxCellFactory />
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn text="Шкала">
+                            <cellFactory>
+                                <ComboBoxCellFactory />
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn text="Роль">
+                            <cellFactory>
+                                <ComboBoxCellFactory />
+                            </cellFactory>
+                        </TableColumn>
+                        <TableColumn text="Мощьность">
+                            <cellFactory>
+                                <PropertyValueFactory />
+                            </cellFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                    <Button fx:id="addRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" prefHeight="29" prefWidth="29" text="+">
+                        <HBox.margin>
+                            <Insets>
+                                <top>0</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="removeRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" prefHeight="29" prefWidth="29" text="-">
+                        <HBox.margin>
+                            <Insets>
+                                <top>0</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </HBox.margin>
+                    </Button>
+                </HBox>
+            </VBox>
+            <VBox fillWidth="false" minWidth="170.0" HBox.hgrow="NEVER">
+                <prefWidth>170.0</prefWidth>
+                <maxWidth>170.0</maxWidth>
+                <Label text="Назначение">
+                    <VBox.margin>
+                        <Insets>
+                            <top>5</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Label>
+                <VBox style="-fx-background-color: lightgray;">
+                    <VBox.margin>
+                        <Insets>
+                            <top>0</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                    <Label text="Должность">
+                        <VBox.margin>
+                            <Insets>
+                                <top>5</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </VBox.margin>
+                    </Label>
+                    <ComboBox fx:id="rankComboBox">
+                        <prefWidth>150.0</prefWidth>
+                        <minWidth>150.0</minWidth>
+                        <maxWidth>150.0</maxWidth>
+                        <VBox.margin>
+                            <Insets>
+                                <top>0</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </VBox.margin>
+                    </ComboBox>
+                    <Label text="Документ">
+                        <VBox.margin>
+                            <Insets>
+                                <top>5</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </VBox.margin>
+                    </Label>
+                    <ComboBox fx:id="documentComboBox">
+                        <prefWidth>150.0</prefWidth>
+                        <minWidth>150.0</minWidth>
+                        <maxWidth>150.0</maxWidth>
+                        <VBox.margin>
+                            <Insets>
+                                <top>0</top>
+                                <right>5</right>
+                                <bottom>5</bottom>
+                                <left>5</left>
+                            </Insets>
+                        </VBox.margin>
+                    </ComboBox>
+                </VBox>
+                <Label text="Цель">
+                    <VBox.margin>
+                        <Insets>
+                            <top>5</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Label>
+                <ComboBox fx:id="goalComboBox">
+                    <prefWidth>150.0</prefWidth>
+                    <minWidth>150.0</minWidth>
+                    <maxWidth>150.0</maxWidth>
+                    <VBox.margin>
+                        <Insets>
+                            <top>0</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </ComboBox>
+                <Label text="Количество элементов" wrapText="true">
+                    <VBox.margin>
+                        <Insets>
+                            <top>5</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Label>
+                <Spinner fx:id="elementsCountSpinner">
+                    <VBox.margin>
+                        <Insets>
+                            <top>0</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Spinner>
+                <Button fx:id="findMethodButton" onAction="#handle" text="Найти метод">
+                    <VBox.margin>
+                        <Insets>
+                            <top>5</top>
+                            <right>5</right>
+                            <bottom>5</bottom>
+                            <left>5</left>
+                        </Insets>
+                    </VBox.margin>
+                </Button>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            </VBox>
+        </HBox>
+    </VBox>
+</AnchorPane>
