@@ -8,10 +8,11 @@ import javafx.util.Callback;
 /**
  * Created by maria on 6/12/17.
  */
-public class CheckBoxCellFactory<S, T> implements Callback<TableColumn<S, T>, TableCell<S, T>> {
+public class CheckBoxTableCellFactory<S, T> implements Callback<TableColumn<S, T>, TableCell<S, T>> {
 
     @Override
     public TableCell<S, T> call(TableColumn<S, T> stTableColumn) {
-        return new CheckBoxTableCell<>();
+        return new CheckBoxTableCell<S, T>();
     }
+
 }
