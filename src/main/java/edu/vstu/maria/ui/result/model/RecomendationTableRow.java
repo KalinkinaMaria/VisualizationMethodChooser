@@ -1,7 +1,7 @@
 package edu.vstu.maria.ui.result.model;
 
 import com.sun.istack.internal.NotNull;
-import edu.vstu.maria.model.Recomendation;
+import edu.vstu.maria.model.KRecomendation;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,9 +13,9 @@ public class RecomendationTableRow {
     private final StringProperty variableName;
     private final StringProperty visualAttribute;
 
-    public RecomendationTableRow(@NotNull final Recomendation recomendation) {
-        this.variableName = new SimpleStringProperty(recomendation.variableName);
-        this.visualAttribute = new SimpleStringProperty(recomendation.visualAttribute.name());
+    public RecomendationTableRow(@NotNull final KRecomendation KRecomendation) {
+        this.variableName = new SimpleStringProperty(KRecomendation.variableName);
+        this.visualAttribute = new SimpleStringProperty(KRecomendation.KVisualAttribute.name());
     }
 
     public final String getVariableName() {

@@ -1,7 +1,7 @@
 package edu.vstu.maria.ui.result.model;
 
 import com.sun.istack.internal.NotNull;
-import edu.vstu.maria.model.VisualizationMethod;
+import edu.vstu.maria.model.KVisualizationMethod;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,9 +13,9 @@ public class VisualizationMethodTableRow {
     private final StringProperty name;
     private final StringProperty measureСloseness;
 
-    public VisualizationMethodTableRow(@NotNull final VisualizationMethod visualizationMethod) {
-        this.name = new SimpleStringProperty(visualizationMethod.name);
-        this.measureСloseness = new SimpleStringProperty(visualizationMethod.measureСloseness.toString());
+    public VisualizationMethodTableRow(@NotNull final KVisualizationMethod KVisualizationMethod) {
+        this.name = new SimpleStringProperty(KVisualizationMethod.name);
+        this.measureСloseness = new SimpleStringProperty(KVisualizationMethod.measureСloseness.toString());
     }
 
     public final String getName() {
