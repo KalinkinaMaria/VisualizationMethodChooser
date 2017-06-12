@@ -1,10 +1,10 @@
 package edu.vstu.maria.ui.result;
 
 import com.sun.istack.internal.NotNull;
-import edu.vstu.maria.model.Recomendation;
-import edu.vstu.maria.model.SimilarMethod;
-import edu.vstu.maria.model.Tool;
-import edu.vstu.maria.model.VisualizationMethod;
+import edu.vstu.maria.model.KRecomendation;
+import edu.vstu.maria.model.KSimilarMethod;
+import edu.vstu.maria.model.KTool;
+import edu.vstu.maria.model.KVisualizationMethod;
 import edu.vstu.maria.ui.KWindow;
 import edu.vstu.maria.ui.result.model.RecomendationTableRow;
 import edu.vstu.maria.ui.result.model.SimilarMethodTableRow;
@@ -25,7 +25,7 @@ public class KResult extends KWindow implements KResultControllerListener {
 
     private final KResultController controller;
 
-    private final ArrayList<VisualizationMethod> visualizationMethods;
+    private final ArrayList<KVisualizationMethod> KVisualizationMethods;
 
     public KResult() throws IOException {
         URL view = KResult.class.getClassLoader().getResource("KResultView.fxml");
@@ -34,15 +34,15 @@ public class KResult extends KWindow implements KResultControllerListener {
         this.controller = loader.getController();
         this.controller.setListener(this);
 
-        this.visualizationMethods = new ArrayList<>();
+        this.KVisualizationMethods = new ArrayList<>();
     }
 
-    public void setVisualizationMethods(@NotNull final ArrayList<VisualizationMethod> visualizationMethods) {
-        this.visualizationMethods.clear();
-        this.visualizationMethods.addAll(visualizationMethods);
+    public void setKVisualizationMethods(@NotNull final ArrayList<KVisualizationMethod> KVisualizationMethods) {
+        this.KVisualizationMethods.clear();
+        this.KVisualizationMethods.addAll(KVisualizationMethods);
         ArrayList<VisualizationMethodTableRow> visualizationMethodTableRows = new ArrayList<>();
-        for (VisualizationMethod visualizationMethod : visualizationMethods) {
-            visualizationMethodTableRows.add(new VisualizationMethodTableRow(visualizationMethod));
+        for (KVisualizationMethod KVisualizationMethod : KVisualizationMethods) {
+            visualizationMethodTableRows.add(new VisualizationMethodTableRow(KVisualizationMethod));
         }
         this.controller.setVisualizationMethods(visualizationMethodTableRows);
     }
@@ -54,23 +54,23 @@ public class KResult extends KWindow implements KResultControllerListener {
 
     @Override
     public void onSelectVisualizationMethod(String visualizationMethodName) {
-        for (VisualizationMethod visualizationMethod : this.visualizationMethods) {
-            if (visualizationMethod.name.compareTo(visualizationMethodName) == 0) {
+        for (KVisualizationMethod KVisualizationMethod : this.KVisualizationMethods) {
+            if (KVisualizationMethod.name.compareTo(visualizationMethodName) == 0) {
                 ArrayList<RecomendationTableRow> recomendationTableRows = new ArrayList<>();
-                for (Recomendation recomendation : visualizationMethod.recomendations) {
-                    recomendationTableRows.add(new RecomendationTableRow(recomendation));
+                for (KRecomendation KRecomendation : KVisualizationMethod.KRecomendations) {
+                    recomendationTableRows.add(new RecomendationTableRow(KRecomendation));
                 }
                 this.controller.setRecomendations(recomendationTableRows);
 
                 ArrayList<ToolTableRow> toolTableRows = new ArrayList<>();
-                for (Tool tool : visualizationMethod.tools) {
-                    toolTableRows.add(new ToolTableRow(tool));
+                for (KTool KTool : KVisualizationMethod.KTools) {
+                    toolTableRows.add(new ToolTableRow(KTool));
                 }
                 this.controller.setTools(toolTableRows);
 
                 ArrayList<SimilarMethodTableRow> similarMethodTableRows = new ArrayList<>();
-                for (SimilarMethod similarMethod : visualizationMethod.similarMethods) {
-                    similarMethodTableRows.add(new SimilarMethodTableRow(similarMethod));
+                for (KSimilarMethod KSimilarMethod : KVisualizationMethod.KSimilarMethods) {
+                    similarMethodTableRows.add(new SimilarMethodTableRow(KSimilarMethod));
                 }
                 this.controller.setSimilarMethods(similarMethodTableRows);
 

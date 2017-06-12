@@ -54,7 +54,7 @@
                     </TableColumn>
                     <TableColumn editable="false" text="Визуальный атрибут">
                         <cellValueFactory>
-                            <PropertyValueFactory property="visualAttribute" />
+                            <PropertyValueFactory property="KVisualAttribute" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
