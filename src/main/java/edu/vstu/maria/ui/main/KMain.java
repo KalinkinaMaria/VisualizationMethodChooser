@@ -3,9 +3,9 @@ package edu.vstu.maria.ui.main;
 import com.sun.istack.internal.NotNull;
 import edu.vstu.maria.ui.KWindow;
 import edu.vstu.maria.ui.case_editor.KCaseEditor;
-import edu.vstu.maria.ui.visualization_method_editor.KVisualizationMethodEditor;
 import edu.vstu.maria.ui.purpose_editor.KPurposeEditor;
 import edu.vstu.maria.ui.result.KResult;
+import edu.vstu.maria.ui.visualization_method_editor.KVisualizationMethodEditor;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -30,6 +30,7 @@ public class KMain extends KWindow implements KMainControllerListener{
 
     public void show() {
         this.currentWindow.show();
+
     }
 
     @Override

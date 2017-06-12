@@ -1,6 +1,6 @@
 package edu.vstu.maria.ui.main;
 
-import edu.vstu.maria.ui.main.model.DataVariableTableRow;
+import edu.vstu.maria.ui.main.model.DataSchemaTableRow;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,11 +18,15 @@ public class KMainController implements EventHandler {
     @FXML private MenuItem visualizationMethodMenuItem;
     @FXML private MenuItem purposeMenuItem;
     @FXML private MenuItem aboutMenuItem;
-    @FXML private TableView<DataVariableTableRow> dataSchemeTableView;
+
+    @FXML private TableView<DataSchemaTableRow> dataSchemaTableView;
+
     @FXML private Button addRowButton;
     @FXML private Button removeRowButton;
+
     @FXML private ComboBox rankComboBox;
     @FXML private ComboBox documentComboBox;
+
     @FXML private ComboBox goalComboBox;
     @FXML private Spinner elementsCountSpinner;
     @FXML private Button findMethodButton;
@@ -67,6 +71,12 @@ public class KMainController implements EventHandler {
             this.listener.onClickPurposeButton();
         } else if (this.aboutMenuItem.getId().compareTo(eventMenuItemId) == 0) {
             this.listener.onClickAboutButton();
+        } else if (this.addRowButton.getId().compareTo(eventMenuItemId) == 0) {
+            this.dataSchemaTableView.getItems().add(new DataSchemaTableRow());
+        } else if (this.removeRowButton.getId().compareTo(eventMenuItemId) == 0) {
+            if (this.dataSchemaTableView.getSelectionModel().getSelectedItem() != null) return;
+
+            this.dataSchemaTableView.getItems().remove(this.dataSchemaTableView.getSelectionModel().getSelectedItem());
         } else if (this.findMethodButton.getId().compareTo(eventMenuItemId) == 0) {
             this.listener.onClickFindMethodButton();
         }

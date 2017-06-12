@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import edu.vstu.maria.ui.model.CheckBoxCellFactory?>
-<?import edu.vstu.maria.ui.model.ComboBoxCellFactory?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import edu.vstu.maria.ui.model.CheckBoxTableCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxDataTypeTableCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxDocumentListCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxRankListCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxRoleTableCellFactory?>
+<?import edu.vstu.maria.ui.model.ComboBoxScaleTableCellFactory?>
+<?import edu.vstu.maria.ui.model.TextFieldDoubleTableCellFactory?>
+<?import edu.vstu.maria.ui.model.TextFieldStringTableCellFactory?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.vstu.maria.ui.main.KMainController">
     <minHeight>500.0</minHeight>
     <minWidth>750.0</minWidth>
@@ -41,9 +58,10 @@
                         </Insets>
                     </VBox.margin>
                 </Label>
-                <TableView fx:id="dataSchemeTableView" VBox.vgrow="ALWAYS">
+                <TableView fx:id="dataSchemaTableView" editable="true">
                     <prefWidth>550.0</prefWidth>
                     <minWidth>550.0</minWidth>
+                    <VBox.vgrow>ALWAYS</VBox.vgrow>
                     <VBox.margin>
                         <Insets>
                             <top>0</top>
@@ -56,40 +74,64 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
-                        <TableColumn text="Визуализировать">
+                        <TableColumn fx:id="visualizationDataSchemaColumn">
+                            <text>Визуализировать</text>
                             <cellFactory>
-                                <CheckBoxCellFactory />
+                                <CheckBoxTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="visualization" />
+                            </cellValueFactory>
                         </TableColumn>
-                        <TableColumn text="Название">
+                        <TableColumn fx:id="nameDataSchemaColumn">
+                            <text>Название</text>
                             <cellFactory>
-                                <PropertyValueFactory />
+                                <TextFieldStringTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name" />
+                            </cellValueFactory>
                         </TableColumn>
-                        <TableColumn text="Тип данных">
+                        <TableColumn fx:id="dataTypeDataSchemaColumn">
+                            <text>Тип данных</text>
                             <cellFactory>
-                                <ComboBoxCellFactory />
+                                <ComboBoxDataTypeTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dataType" />
+                            </cellValueFactory>
                         </TableColumn>
-                        <TableColumn text="Шкала">
+                        <TableColumn fx:id="scaleDataSchemaColumn">
+                            <text>Шкала</text>
                             <cellFactory>
-                                <ComboBoxCellFactory />
+                                <ComboBoxScaleTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="scale" />
+                            </cellValueFactory>
                         </TableColumn>
-                        <TableColumn text="Роль">
+                        <TableColumn fx:id="roleDataSchemaColumn">
+                            <text>Роль</text>
                             <cellFactory>
-                                <ComboBoxCellFactory />
+                                <ComboBoxRoleTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="role" />
+                            </cellValueFactory>
                         </TableColumn>
-                        <TableColumn text="Мощьность">
+                        <TableColumn fx:id="capacityDataSchemaColumn">
+                            <text>Мощность</text>
                             <cellFactory>
-                                <PropertyValueFactory />
+                                <TextFieldDoubleTableCellFactory />
                             </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="capacity" />
+                            </cellValueFactory>
                         </TableColumn>
                     </columns>
                 </TableView>
                 <HBox alignment="CENTER" VBox.vgrow="NEVER">
-                    <Button fx:id="addRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" prefHeight="29" prefWidth="29" text="+">
+                    <Button fx:id="addRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" onAction="#handle" prefHeight="29" prefWidth="29" text="+">
                         <HBox.margin>
                             <Insets>
                                 <top>0</top>
@@ -99,7 +141,7 @@
                             </Insets>
                         </HBox.margin>
                     </Button>
-                    <Button fx:id="removeRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" prefHeight="29" prefWidth="29" text="-">
+                    <Button fx:id="removeRowButton" maxHeight="29" maxWidth="29" minHeight="29" minWidth="29" onAction="#handle" prefHeight="29" prefWidth="29" text="-">
                         <HBox.margin>
                             <Insets>
                                 <top>0</top>
@@ -155,6 +197,9 @@
                                 <left>5</left>
                             </Insets>
                         </VBox.margin>
+                        <cellFactory>
+                            <ComboBoxRankListCellFactory />
+                        </cellFactory>
                     </ComboBox>
                     <Label text="Документ">
                         <VBox.margin>
@@ -178,6 +223,9 @@
                                 <left>5</left>
                             </Insets>
                         </VBox.margin>
+                        <cellFactory>
+                            <ComboBoxDocumentListCellFactory />
+                        </cellFactory>
                     </ComboBox>
                 </VBox>
                 <Label text="Цель">
