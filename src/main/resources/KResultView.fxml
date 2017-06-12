@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.vstu.maria.ui.result.KResultController">
     <GridPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <children>
-            <TableView fx:id="visualizationMethodsTable" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="6">
+            <TableView fx:id="visualizationMethodsTableView" onMouseClicked="#handle" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="6">
                 <GridPane.margin>
                     <Insets>
                         <right>5</right>
@@ -36,7 +36,7 @@
                     </Insets>
                 </GridPane.margin>
             </Label>
-            <TableView fx:id="recomendationsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1">
+            <TableView fx:id="recomendationsTableView" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1">
                 <GridPane.margin>
                     <Insets>
                         <top>5</top>
@@ -67,7 +67,7 @@
                     </Insets>
                 </GridPane.margin>
             </Label>
-            <TableView fx:id="toolsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="3">
+            <TableView fx:id="toolsTableView" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="3">
                 <GridPane.margin>
                     <Insets>
                         <top>5</top>
@@ -103,7 +103,7 @@
                     </Insets>
                 </GridPane.margin>
             </Label>
-            <TableView fx:id="similarMethodsTable" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="5">
+            <TableView fx:id="similarMethodsTableView" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="5">
                 <GridPane.margin>
                     <Insets>
                         <top>5</top>
