@@ -5,11 +5,11 @@ import com.sun.istack.internal.NotNull;
 /**
  * Created by maria on 6/10/17.
  */
-public class SimilarMethod {
+public class KSimilarMethod {
 
     public final String name;
 
-    public SimilarMethod(@NotNull final String name) {
+    public KSimilarMethod(@NotNull final String name) {
         this.name = name;
     }
 

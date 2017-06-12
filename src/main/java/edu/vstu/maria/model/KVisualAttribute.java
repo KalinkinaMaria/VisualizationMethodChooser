@@ -3,7 +3,7 @@ package edu.vstu.maria.model;
 /**
  * Created by nikita on 6/10/17.
  */
-public enum VisualAttribute {
+public enum KVisualAttribute {
     AREA,
     AXIS,
     BAR,
